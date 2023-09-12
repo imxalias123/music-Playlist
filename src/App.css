@@ -49,6 +49,11 @@ body {
   border: 1px solid #cbd5e1;
   background: transparent;
   height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-right: 50px;
+  border-radius: 3px;
 }
 .search-bar {
   border: none;
@@ -58,4 +63,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.search-icon {
+  color: #fff;
+}
+.unordered-list {
+  list-style-type: none;
+  padding: 0px;
 }

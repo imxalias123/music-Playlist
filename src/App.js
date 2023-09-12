@@ -1,5 +1,6 @@
 import './App.css'
 import {BsSearch} from 'react-icons/bs'
+import TrackList from './components/TrackList'
 
 const initialTracksList = [
   {
@@ -102,6 +103,11 @@ const App = () => (
           <BsSearch className="search-icon" />
         </div>
       </div>
+      <ul className="unordered-list">
+        {initialTracksList.map(eachTrack => (
+          <TrackList key={eachTrack.id} trackList={eachTrack} />
+        ))}
+      </ul>
     </div>
   </div>
 )
