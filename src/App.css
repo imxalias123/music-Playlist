@@ -13,7 +13,9 @@ body {
 .profile-img {
   background-image: url('https://assets.ccbp.in/frontend/react-js/music-playlist/music-playlist-Edsheeran-bg.png');
   background-size: cover;
-  padding: 10px;
+  padding: 100px;
+  padding-bottom: 0px;
+
   height: 50vh;
   font-family: 'roboto';
   color: #fff;
@@ -22,12 +24,13 @@ body {
   justify-content: flex-end;
 }
 .heading {
-  font-size: 40px;
+  font-size: 55px;
+  font-weight: 500;
   margin-left: 40px;
   margin-bottom: 0px;
 }
 .para {
-  font-size: 30px;
+  font-size: 40px;
   margin-left: 40px;
   margin-top: 0px;
 }
@@ -38,12 +41,25 @@ body {
   background-color: #152850;
   min-height: 50vh;
   padding-top: 10px;
-  padding-left: 40px;
+  padding-left: 60px;
   font-family: 'roboto';
+}
+.no-song-container {
+  background-color: #152850;
+  min-height: 50vh;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'roboto';
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
 }
 .songs-heading {
   color: #fff;
-  font-weight: 400;
+  font-size: 40px;
+  font-weight: 600;
 }
 .search-container {
   border: 1px solid #cbd5e1;

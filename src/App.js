@@ -1,4 +1,5 @@
 import './App.css'
+import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import TrackList from './components/TrackList'
 
@@ -87,29 +88,78 @@ const initialTracksList = [
 
 // Replace your code here
 
-const App = () => (
-  <div className="container">
-    <div className="profile-img">
-      <h1 className="heading">Ed Sheeran</h1>
-      <p className="para">Singer</p>
+class App extends Component {
+  state = {
+    searchInput: '',
+    tracksList: initialTracksList,
+  }
+
+  onChangeSearchEvent = event => {
+    this.setState({
+      searchInput: event.target.value,
+    })
+  }
+
+  onDeleteTrack = id => {
+    const {tracksList} = this.state
+    const filteredData = tracksList.filter(each => each.id !== id)
+    console.log(filteredData)
+    this.setState({
+      tracksList: filteredData,
+    })
+  }
+
+  renderNoView = () => (
+    <div className="no-song-container">
+      <h1>No Songs Found</h1>
     </div>
+  )
 
-    <div className="bottom-container">
-      <div className="bottom-top-container">
-        <h1 className="songs-heading">Songs Playlist</h1>
-        <div className="search-container">
-          <input placeholder="Search" className="search-bar" />
+  render() {
+    const {searchInput, tracksList} = this.state
+    const searchResults = tracksList.filter(each =>
+      each.name.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+    const length = searchResults.length === 0
 
-          <BsSearch className="search-icon" />
+    return (
+      <div className="container">
+        <div className="profile-img">
+          <h1 className="heading">Ed Sheeran</h1>
+          <p className="para">Singer</p>
         </div>
+        {length ? (
+          this.renderNoView()
+        ) : (
+          <div className="bottom-container">
+            <div className="bottom-top-container">
+              <h1 className="songs-heading">Songs Playlist</h1>
+              <div className="search-container">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  className="search-bar"
+                  value={searchInput}
+                  onChange={this.onChangeSearchEvent}
+                />
+
+                <BsSearch className="search-icon" />
+              </div>
+            </div>
+            <ul className="unordered-list">
+              {searchResults.map(eachTrack => (
+                <TrackList
+                  key={eachTrack.id}
+                  trackList={eachTrack}
+                  onDelete={this.onDeleteTrack}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      <ul className="unordered-list">
-        {initialTracksList.map(eachTrack => (
-          <TrackList key={eachTrack.id} trackList={eachTrack} />
-        ))}
-      </ul>
-    </div>
-  </div>
-)
+    )
+  }
+}
 
 export default App

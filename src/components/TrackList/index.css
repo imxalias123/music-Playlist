@@ -1,0 +1,49 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 80px;
+}
+
+.track-img {
+  width: 200px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+.wrap-name-genre {
+  display: flex;
+  flex-direction: column;
+}
+.wrap-track-text {
+  display: flex;
+  font-family: 'roboto';
+  align-items: center;
+}
+.wrap-end {
+  display: flex;
+  align-items: center;
+}
+.name {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+.genre {
+  color: #3b82f6;
+  font-size: 25px;
+  font-weight: 500;
+}
+.time {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+.delete-btn {
+  background: transparent;
+  border: 0px;
+}
+.icon {
+  color: #fff;
+  font-size: 25px;
+  margin-left: 50px;
+}
